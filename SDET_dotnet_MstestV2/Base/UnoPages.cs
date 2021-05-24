@@ -5,13 +5,16 @@ namespace SDET_dotnet_MstestV2.Base
 {
     public class UnoPages
     {
-        protected UnoBrowser browser;
-        protected IWebDriver driver;
+        protected static UnoBrowser browser;
+        protected static IWebDriver driver;
         public UnoPages()
         {
-            browser = new UnoBrowser();
-            driver = browser.CreateBrowser(UnoBrowser.Browser.Chrome);
-            PageFactory.InitElements(driver, this);
+            if (driver == null)
+            {
+                browser = new UnoBrowser();
+                driver = browser.CreateBrowser(UnoBrowser.Browser.Chrome);
+                PageFactory.InitElements(driver, this);
+            }
         }
 
     }

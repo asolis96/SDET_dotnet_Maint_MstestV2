@@ -28,5 +28,10 @@ namespace SDET_dotnet_MstestV2.Base
         {
             element.Click();
         }
+
+        public void SendText(IWebElement element, string text)
+        {
+            element.SendKeys(text);
+        }
     }
 }
