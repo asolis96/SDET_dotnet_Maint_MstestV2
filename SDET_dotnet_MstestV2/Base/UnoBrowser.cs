@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Interactions;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -27,6 +28,13 @@ namespace SDET_dotnet_MstestV2.Base
         public void Click(IWebElement element)
         {
             element.Click();
+        }
+
+        public void ScrollToElement(IWebDriver driver, IWebElement element)
+        {
+            Actions actions = new Actions(driver);
+            actions.MoveToElement(element);
+            actions.Perform();
         }
     }
 }

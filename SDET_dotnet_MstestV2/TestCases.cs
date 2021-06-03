@@ -7,10 +7,12 @@ namespace SDET_dotnet_MstestV2
     public class TestCases
     {
         HomePage homepage;
+        ServicesPage servicesPage;
+        AboutPage aboutPage;
         [TestInitialize]
         public void BeforeTest()
         {
-            homepage = new HomePage();
+            homepage = new HomePage();            
         }
         [TestMethod]
         public void Unosquare_GotoCareers()
@@ -29,6 +31,10 @@ namespace SDET_dotnet_MstestV2
              * Verify that this element is present: TRUSTED BY INDUSTRY LEADERS
              * Print How many Industry Leaders are being displayed
              * */
+            homepage.GoToServicesPage();
+            servicesPage = new ServicesPage();
+            servicesPage.ValidateTextIsPresent();
+            servicesPage.PrintTotalIndustryLeadersDisplayed();
         }
         [TestMethod]
         public void ValidateOurMission()
@@ -42,6 +48,11 @@ namespace SDET_dotnet_MstestV2
              * Scroll Down and verify element is present: LEADERSHIP TEAM
              * Print the name of each Leader and the corresponding Rol
              * */
+            homepage.GoToAboutPage();
+            aboutPage = new AboutPage();
+            aboutPage.ValidateGuidingPurposesArePresent();
+            aboutPage.PrintLeadershipTeam();
+
         }
     }
 }
