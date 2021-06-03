@@ -44,7 +44,6 @@ namespace SDET_dotnet_MstestV2.POM
         public AboutPage PrintLeadershipTeam()
         {
             string[] aux;
-            string s;
          
             browser.ScrollToElement(driver, LeadershipTeamTitle);
             browser.ScrollToElement(driver, LeadershipTeam[0]);
